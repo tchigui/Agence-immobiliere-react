@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# TP1 — Agence financière immobilière
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Étudiant :** Patrick Tchigui
+**Cours :** Programmation avancée
+**TP :** PA-TP1 — Interface graphique React
 
-## Available Scripts
+## Lancer l'application
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+L'application démarre ensuite sur [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Analyse des besoins
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Pour chaque besoin, l'expression du besoin (point de vue utilisateur) est suivie de la fiche de cas d'utilisation correspondante (Cas / Acteur / Scénario).
 
-### `npm test`
+### 1. Naviguer entre les sections
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Expression du besoin :** Le site doit permettre à l'utilisateur de naviguer entre les sections Accueil, Projets, Services, À propos et Nous joindre.
 
-### `npm run build`
+**Cas : Naviguer**
+Acteur : Utilisateur
+Scénario :
+1. Le système affiche les liens de navigation.
+2. Si l'utilisateur clique sur un lien parmi Accueil, Projets, Services, À propos, Nous joindre → le système affiche la section correspondante.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Consulter la liste des projets
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Expression du besoin :** Le site doit permettre à l'utilisateur de consulter la liste des projets immobiliers et de voir les informations essentielles de chaque projet.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Cas : Consulter la liste des projets**
+Acteur : Utilisateur
+Scénario :
+1. Le système affiche la liste des projets à partir du state.
+2. Chaque projet est affiché sous forme de carte avec : identifiant, titre, ville/secteur, type, statut, description, information financière ou de superficie, image.
 
-### `npm run eject`
+### 3. Filtrer les projets
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Expression du besoin :** Le site doit permettre à l'utilisateur de filtrer les projets selon un critère pertinent (type ou statut).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Cas : Filtrer les projets**
+Acteur : Utilisateur
+Scénario :
+1. Le système affiche les options de filtre disponibles.
+2. Si l'utilisateur sélectionne un filtre → le système affiche uniquement les projets correspondants et indique visuellement le filtre actif.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Retirer un projet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Expression du besoin :** Le site doit permettre à l'utilisateur de retirer un projet de la liste affichée.
 
-## Learn More
+**Cas : Retirer un projet**
+Acteur : Utilisateur
+Scénario :
+1. Le système affiche un bouton « Retirer » sur chaque carte de projet.
+2. Si l'utilisateur clique sur ce bouton → le système retire le projet de la liste affichée.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Afficher un message si aucun résultat
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Expression du besoin :** Le site doit indiquer clairement lorsqu'aucun projet ne correspond au filtre choisi.
 
-### Code Splitting
+**Cas : Afficher un message si aucun résultat**
+Acteur : Utilisateur
+Scénario :
+1. L'utilisateur a sélectionné un filtre.
+2. Si aucun projet ne correspond → le système affiche un message clair l'indiquant.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Contraintes de qualité
 
-### Analyzing the Bundle Size
+- Clarté et cohérence visuelle : présenter l'agence et ses activités de manière claire et professionnelle.
+- Responsive : rester lisible, cohérent et utilisable sur différentes tailles d'écran.
+- Facilité d'utilisation : donner un retour visuel constant sur la section et le filtre actifs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Arbre des composants
 
-### Making a Progressive Web App
+_À compléter à l'étape B._
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Rôle des principaux composants
 
-### Advanced Configuration
+_À compléter au fur et à mesure du développement._
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Capture d'écran
 
-### Deployment
+_À ajouter avant la remise finale._
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Sources des images
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_À compléter si des images externes sont utilisées._
