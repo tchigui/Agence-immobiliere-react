@@ -75,11 +75,43 @@ Scénario :
 
 ## Arbre des composants
 
-_À compléter à l'étape B._
+```
+App
+├── Navigation         -> navigation entre les sections, affiche la section active
+├── Accueil            -> page d'accueil, presentation de l'agence (deja fourni dans le code de depart)
+├── Projets            -> gere la liste des projets et le filtre (state ici)
+|   ├── FiltreProjets  -> boutons/menu de filtre, affiche le filtre actif
+|   ├── ListeProjets   -> genere les cartes avec map()
+|   |   └── ProjetCard -> carte reutilisable (1 par projet), recoit les donnees
+|   |                     et une fonction "retirer" par props
+|   └── MessageVide    -> affiche seulement si aucun projet ne correspond au filtre
+├── Services           -> presentation des services offerts
+├── APropos             -> presentation de l'agence (historique, mission, etc.)
+└── NousJoindre         -> coordonnees / formulaire de contact
+```
 
-## Rôle des principaux composants
+### Justification de la structure
 
-_À compléter au fur et à mesure du développement._
+- **Nommage clair et cohérent** : tous les composants portent un nom en français qui décrit directement leur rôle (`Accueil`, `Projets`, `FiltreProjets`, `ListeProjets`, `ProjetCard`, `MessageVide`, `Services`, `APropos`, `NousJoindre`, `Navigation`).
+- **Responsabilité précise** : chaque composant a une seule raison d'exister (afficher la navigation, gérer la liste et le filtre, afficher une carte, afficher un message conditionnel, etc.). Aucun composant ne mélange plusieurs responsabilités.
+- **Réutilisation** : `ProjetCard` est le composant réutilisable central. Il est instancié une fois par projet via `map()` plutôt que d'être copié manuellement pour chaque projet.
+- **Évolutivité** : cette première version pourra évoluer pendant le développement. Le composant `Accueil` existe déjà dans le code de départ fourni (avec une section "hero" et un bouton React-Bootstrap) ; les composants `Navigation`, `Projets` et ses enfants, `Services`, `APropos` et `NousJoindre` restent à créer. L'arbre sera ajusté au besoin si de nouveaux sous-composants deviennent nécessaires.
+
+## Role des principaux composants
+
+| Composant | Responsabilite |
+| --- | --- |
+| App | Composant racine. Gere le state `sectionActive` et affiche la section correspondante. |
+| Navigation | Affiche les liens de navigation et indique la section active. |
+| Accueil | Presente l'agence et un apercu de ses activites (composant deja fourni dans le code de depart). |
+| Projets | Gere le state `projets` (liste) et `filtreActif`. Orchestre le filtre, l'affichage de la liste et le retrait d'un projet. |
+| FiltreProjets | Affiche les options de filtre et indique le filtre actif. |
+| ListeProjets | Genere une carte par projet filtre avec map() et une key stable (id). |
+| ProjetCard | Composant reutilisable qui affiche un projet et recoit une fonction de retrait par props. |
+| MessageVide | Affiche un message quand aucun projet ne correspond au filtre. |
+| Services | Presente les services offerts par l'agence. |
+| APropos | Presente l'agence plus en detail. |
+| NousJoindre | Affiche les coordonnees / un formulaire de contact. |
 
 ## Capture d'écran
 
