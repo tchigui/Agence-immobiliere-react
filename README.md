@@ -75,7 +75,6 @@ Scénario :
 
 ## Arbre des composants
 
-```
 App
 ├── Navigation         -> navigation entre les sections, affiche la section active
 ├── Accueil            -> page d'accueil, presentation de l'agence (deja fourni dans le code de depart)
@@ -88,11 +87,11 @@ App
 ├── Services           -> presentation des services offerts
 ├── APropos             -> presentation de l'agence (historique, mission, etc.)
 └── NousJoindre         -> coordonnees / formulaire de contact
-```
+
 
 ### Justification de la structure
 
-- **Nommage clair et cohérent** : tous les composants portent un nom en français qui décrit directement leur rôle (`Accueil`, `Projets`, `FiltreProjets`, `ListeProjets`, `ProjetCard`, `MessageVide`, `Services`, `APropos`, `NousJoindre`, `Navigation`).
+- Nommage clair et cohérent** : tous les composants portent un nom en français qui décrit directement leur rôle (`Accueil`, `Projets`,  - -  FiltreProjets`, `ListeProjets`, `ProjetCard`, `MessageVide`, `Services`, `APropos`, `NousJoindre`, `Navigation`).
 - **Responsabilité précise** : chaque composant a une seule raison d'exister (afficher la navigation, gérer la liste et le filtre, afficher une carte, afficher un message conditionnel, etc.). Aucun composant ne mélange plusieurs responsabilités.
 - **Réutilisation** : `ProjetCard` est le composant réutilisable central. Il est instancié une fois par projet via `map()` plutôt que d'être copié manuellement pour chaque projet.
 - **Évolutivité** : cette première version pourra évoluer pendant le développement. Le composant `Accueil` existe déjà dans le code de départ fourni (avec une section "hero" et un bouton React-Bootstrap) ; les composants `Navigation`, `Projets` et ses enfants, `Services`, `APropos` et `NousJoindre` restent à créer. L'arbre sera ajusté au besoin si de nouveaux sous-composants deviennent nécessaires.
