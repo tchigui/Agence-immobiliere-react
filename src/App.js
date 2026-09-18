@@ -14,7 +14,7 @@ function App() {
     <Accueil
       titre="Agence Horizon"
       message={message}
-      onChanger={() => changerMessage}
+      onChanger={changerMessage}
     />
   );
 }
