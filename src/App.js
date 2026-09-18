@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Accueil
-      titreSite="Agence Horizon"
+      titre="Agence Horizon"
       message={message}
       onChanger={() => changerMessage}
     />
