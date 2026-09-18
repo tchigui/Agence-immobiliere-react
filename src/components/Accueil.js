@@ -13,7 +13,7 @@ function Accueil({ titre, message, onChanger }) {
 
         <Button
           variant="dark"
-          onclick={onChanger}
+          onClick={onChanger}
         >
           Voir les projets
         </Button>
