@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Accueil from "./components/Acceuil";
+import Accueil from "./components/Accueil";
 
 function App() {
   const [message, setMessage] = useState(

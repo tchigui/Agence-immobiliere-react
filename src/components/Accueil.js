@@ -1,5 +1,5 @@
 import { Container, Button } from "react-bootstrap";
-import "./Acceuil.css";
+import "./Accueil.css";
 
 function Accueil({ titre, message, onChanger }) {
   return (
