@@ -75,42 +75,46 @@ Scénario :
 
 ## Arbre des composants
 
+```
 App
-├── Navigation         -> navigation entre les sections, affiche la section active
-├── Accueil            -> page d'accueil, presentation de l'agence (deja fourni dans le code de depart)
-├── Projets            -> gere la liste des projets et le filtre (state ici)
-|   ├── FiltreProjets  -> boutons/menu de filtre, affiche le filtre actif
-|   ├── ListeProjets   -> genere les cartes avec map()
-|   |   └── ProjetCard -> carte reutilisable (1 par projet), recoit les donnees
-|   |                     et une fonction "retirer" par props
-|   └── MessageVide    -> affiche seulement si aucun projet ne correspond au filtre
-├── Services           -> presentation des services offerts
-├── APropos             -> presentation de l'agence (historique, mission, etc.)
-└── NousJoindre         -> coordonnees / formulaire de contact
-
+├── NavBar             -> barre de navigation, affiche le logo
+|   └── Menu           -> liens de navigation, indique la section active
+├── Contenu            -> affichage conditionnel de la section active (recoit sectionActive)
+|   ├── (section Accueil)     -> presentation de l'agence (deja fourni dans le code de depart)
+|   ├── (section Projets)
+|   |   └── Projets    -> gere le state du filtre ET de la liste des projets ;
+|   |                     affiche les boutons de filtre, le message si liste vide,
+|   |                     et genere les cartes avec map()
+|   |       └── ProjetCard -> carte reutilisable (1 par projet), recoit les donnees
+|   |                         et une fonction "retirer" par props
+|   ├── (section Services)
+|   ├── (section APropos)
+|   └── (section NousJoindre)
+└── Footer (optionnel) -> coordonnees / liens rapides
+```
 
 ### Justification de la structure
 
-- Nommage clair et cohérent** : tous les composants portent un nom en français qui décrit directement leur rôle (`Accueil`, `Projets`,  - -  FiltreProjets`, `ListeProjets`, `ProjetCard`, `MessageVide`, `Services`, `APropos`, `NousJoindre`, `Navigation`).
-- **Responsabilité précise** : chaque composant a une seule raison d'exister (afficher la navigation, gérer la liste et le filtre, afficher une carte, afficher un message conditionnel, etc.). Aucun composant ne mélange plusieurs responsabilités.
-- **Réutilisation** : `ProjetCard` est le composant réutilisable central. Il est instancié une fois par projet via `map()` plutôt que d'être copié manuellement pour chaque projet.
-- **Évolutivité** : cette première version pourra évoluer pendant le développement. Le composant `Accueil` existe déjà dans le code de départ fourni (avec une section "hero" et un bouton React-Bootstrap) ; les composants `Navigation`, `Projets` et ses enfants, `Services`, `APropos` et `NousJoindre` restent à créer. L'arbre sera ajusté au besoin si de nouveaux sous-composants deviennent nécessaires.
+- **Nommage clair et cohérent** : tous les composants portent un nom qui décrit directement leur rôle (`Accueil`, `Projets`, `ProjetCard`, `Services`, `APropos`, `NousJoindre`, `NavBar`, `Menu`, `Contenu`).
+- **Responsabilité précise** : `NavBar`/`Menu` gèrent uniquement la navigation, `Contenu` gère uniquement l'affichage conditionnel des sections, `Projets` gère le filtre et la liste, `ProjetCard` gère uniquement l'affichage d'un projet.
+- **Réutilisation** : `ProjetCard` est le composant réutilisable central, instancié une fois par projet via `map()` plutôt que d'être copié manuellement.
+- **Évolutivité** : cette structure s'inspire directement des conventions utilisées en classe (CSS Modules, `sectionActive`/`changerSection` géré dans `App`, un composant `Contenu` pour l'affichage conditionnel, un composant de liste qui gère à la fois le filtre et l'affichage). Elle pourra encore évoluer si un sous-composant supplémentaire devient nécessaire pendant le développement.
 
 ## Role des principaux composants
 
 | Composant | Responsabilite |
 | --- | --- |
-| App | Composant racine. Gere le state `sectionActive` et affiche la section correspondante. |
-| Navigation | Affiche les liens de navigation et indique la section active. |
+| App | Composant racine. Gere le state `sectionActive` (useState) et le passe en props a NavBar et Contenu. |
+| NavBar | Affiche le logo et integre le composant Menu. |
+| Menu | Affiche les liens de navigation et indique la section active (comparaison avec sectionActive). |
+| Contenu | Affiche la section active par affichage conditionnel ({sectionActive === 'x' && (...)}). |
 | Accueil | Presente l'agence et un apercu de ses activites (composant deja fourni dans le code de depart). |
-| Projets | Gere le state `projets` (liste) et `filtreActif`. Orchestre le filtre, l'affichage de la liste et le retrait d'un projet. |
-| FiltreProjets | Affiche les options de filtre et indique le filtre actif. |
-| ListeProjets | Genere une carte par projet filtre avec map() et une key stable (id). |
-| ProjetCard | Composant reutilisable qui affiche un projet et recoit une fonction de retrait par props. |
-| MessageVide | Affiche un message quand aucun projet ne correspond au filtre. |
+| Projets | Gere le state `filtre` et le state `projets` (liste). Affiche les boutons de filtre, filtre la liste avec filter(), affiche le message si liste vide, et genere les cartes avec map(). |
+| ProjetCard | Composant reutilisable qui affiche un projet et recoit une fonction de retrait (onSupprimer) par props. |
 | Services | Presente les services offerts par l'agence. |
 | APropos | Presente l'agence plus en detail. |
 | NousJoindre | Affiche les coordonnees / un formulaire de contact. |
+| Footer | (optionnel) Affiche les coordonnees et des liens rapides en bas de page. |
 
 ## Capture d'écran
 
