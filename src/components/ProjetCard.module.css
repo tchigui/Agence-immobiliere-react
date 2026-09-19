@@ -1,0 +1,100 @@
+/* =================================
+   CARTE PROJET
+================================= */
+
+.projetCard {
+  height: 100%;
+
+  border: 1px solid #e7ecef !important;
+
+  border-radius: 18px !important;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.projetCard:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.12);
+
+}
+
+
+/* =================================
+   IMAGE
+================================= */
+
+.image {
+  height: 190px;
+
+  object-fit: cover;
+}
+
+
+/* =================================
+   VILLE
+================================= */
+
+.ville {
+  color: #64748b;
+
+  font-size: 0.9rem;
+
+  margin-bottom: 10px;
+}
+
+
+/* =================================
+   BADGES (TYPE / STATUT)
+================================= */
+
+.badges {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 15px;
+}
+
+.badge {
+  border: 1px solid #d6ede9;
+
+  text-transform: capitalize;
+}
+
+
+/* =================================
+   DESCRIPTION
+================================= */
+
+.description {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  margin-bottom: 12px;
+}
+
+
+/* =================================
+   INFO FINANCIERE / SUPERFICIE
+================================= */
+
+.info {
+  color: #007f75;
+
+  font-weight: 600;
+
+  margin-bottom: 15px;
+}
