@@ -19,6 +19,149 @@
   line-height: 1.8;
 }
 
+
+/* =================================
+   SERVICES
+================================= */
+
+.serviceCard {
+  height: 100%;
+
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e7ecef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.serviceIcon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+
+  background-color: #ecfdf9;
+
+  border-radius: 14px;
+
+  margin-bottom: 18px;
+}
+
+.serviceTitle {
+  color: #102a43;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.serviceText {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =================================
+   STATS (A PROPOS)
+================================= */
+
+.stat {
+  min-height: 130px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.07);
+
+  text-align: center;
+}
+
+.stat strong {
+  font-size: 1.8rem;
+
+  color: #007f75;
+}
+
+.stat span {
+  margin-top: 5px;
+
+  color: #64748b;
+}
+
+
+/* =================================
+   CONTACT (NOUS JOINDRE)
+================================= */
+
+.contactCard {
+  height: 100%;
+
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e7ecef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.contactCard strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #102a43;
+}
+
+.contactCard p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
 @media (max-width: 768px) {
 
   .section {

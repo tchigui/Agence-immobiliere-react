@@ -1,13 +1,13 @@
 import { Container, Button } from "react-bootstrap";
-import "./Accueil.css";
+import styles from "./Accueil.module.css";
 
 function Accueil({ titre, message, changerSection }) {
   return (
-    <Container className="accueil">
-      <section className="hero">
-        <h1 className="titre">{titre}</h1>
+    <Container className={styles.accueil}>
+      <section className={styles.hero}>
+        <h1 className={styles.titre}>{titre}</h1>
 
-        <p className="description">
+        <p className={styles.description}>
           {message}
         </p>
 
