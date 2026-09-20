@@ -1,7 +1,7 @@
 import { Container, Button } from "react-bootstrap";
 import "./Accueil.css";
 
-function Accueil({ titre, message, onChanger }) {
+function Accueil({ titre, message, changerSection }) {
   return (
     <Container className="accueil">
       <section className="hero">
@@ -13,7 +13,7 @@ function Accueil({ titre, message, onChanger }) {
 
         <Button
           variant="dark"
-          onClick={onChanger}
+          onClick={() => changerSection('projets')}
         >
           Voir les projets
         </Button>

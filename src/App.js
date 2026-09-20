@@ -1,21 +1,29 @@
 import { useState } from "react";
-import Accueil from "./components/Accueil";
+
+import NavBar from "./components/NavBar";
+import Contenu from "./components/Contenu";
+
+import styles from "./App.module.css";
 
 function App() {
-  const [message, setMessage] = useState(
-    "Nous accompagnons nos clients dans leurs projets immobiliers."
-  );
-
-  const changerMessage = () => {
-    setMessage("Découvrez bientôt nos projets immobiliers.");
-  };
+  const [sectionActive, setSectionActive] = useState("accueil");
 
   return (
-    <Accueil
-      titre="Agence Horizon"
-      message={message}
-      onChanger={changerMessage}
-    />
+    <div className={styles.app}>
+
+      <NavBar
+        sectionActive={sectionActive}
+        changerSection={setSectionActive}
+      />
+
+      <main>
+        <Contenu
+          sectionActive={sectionActive}
+          changerSection={setSectionActive}
+        />
+      </main>
+
+    </div>
   );
 }
 
